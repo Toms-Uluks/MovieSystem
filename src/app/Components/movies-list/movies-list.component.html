@@ -1,0 +1,19 @@
+<div *ngIf="movies">
+  <div class="topbar">
+    <div class="category-select">
+      <a (click)="getNewest(1)">Now Playing</a>
+      <a (click)="getTop(1)">Top rated</a>
+      <a (click)="getUpcoming(1)">Upcoming</a>
+    </div>
+    <mat-paginator [length]="movies.total_results"
+                  [pageSize]="20"
+                  (page)="pageEvent = getServerData($event.pageIndex + 1)">
+    </mat-paginator>
+  </div>
+  <div class="list-wrap">
+    <div *ngFor="let movie of movies.results" class="movie-wrap" routerLink="/{{movie.id}}">
+      <img class="image" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+      <div class="title">{{movie.title}}</div>
+    </div>
+  </div>
+</div>

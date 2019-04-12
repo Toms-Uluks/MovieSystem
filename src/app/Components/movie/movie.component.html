@@ -1,0 +1,8 @@
+<div *ngIf="movie" class="movie-wrap" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original'+ movie.backdrop_path +')'}">
+  <div class="overlay"></div>
+    <img class="image" height="400px" src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+    <div class="info-wrap">
+      <div class="title">{{movie.title}}</div>
+      <div>{{movie.overview}}</div>
+    </div>
+</div>
